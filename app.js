@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   const identityToUse = identity || 'identity'
   res.send({
     identity: identityToUse,
-    token: tokenGenerator(identityToUse, room)
+    token: tokenGenerator(identityToUse, room),
   })
 })
 
