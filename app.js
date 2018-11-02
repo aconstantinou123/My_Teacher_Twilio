@@ -13,7 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', (req, res) => {
   const { identity, room } = req.query
   const identityToUse = identity || 'identity'
-  res.send(tokenGenerator(identityToUse, room))
+  res.send({
+    identity: identityToUse,
+    token: tokenGenerator(identityToUse, room)
+  })
 })
 
 const server = http.createServer(app)
