@@ -4,10 +4,11 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const tokenGenerator = require('./tokenConfig/tokenGenerator')
+const { corsOptions } = require('./config/config')
 
 const app = express()
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
